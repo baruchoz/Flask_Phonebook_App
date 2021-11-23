@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Blog Phonebook</h1>
+<h4>Welcome {{ current_user.username }}!</h4>
+
+{% for pb in phonebooks %}
+    <br>
+    <div class="card bg-light text-dark">
+        <div class="card-header">
+        {{ pb.first_name }}
+        {{ pb.last_name }}
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ pb.phone_number }}</p>
+                <p>{{ pb.address }}</p>
+                <!-- <footer class="blockquote-footer text-dark"><cite title="Source Title">    
+                </cite></footer> -->
+            </blockquote>
+        </div>
+    </div>   
+{% endfor %}
+
+
+
+{% endblock %}

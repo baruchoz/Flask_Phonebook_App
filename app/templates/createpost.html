@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Make a Post</h1>
+<div class="container">
+    <form actions="" autocomplete="off" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ form.title.label }}
+                {{ form.title(class='form-control', placeholder='title') }}
+            </fieldset>
+            <br>
+            <fieldset>
+                {{ form.content.label }}
+                {{ form.content(class='form-control', placeholder='content') }}
+            </fieldset>
+        </div>
+        <br>
+        {{ form.submit(class='btn btn-secondary') }}
+    </form>
+</div>
+
+{% endblock content %}  
