@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for phonebook in phonebooks %}
+    <br>
+    <div class="card bg-light text-dark">
+        <div class="card-header">
+        {{ phonebook.first_name }} {{ phonebook.last_name }}
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ phonebook.phone_number }}</p>
+                <p>{{ phonebook.address }}</p>
+                <footer class="blockquote-footer text-dark">{{ phonebook.author.username }} on <cite title="Source Title">
+                    {{ phonebook.date_created.strftime('%A, %b %d, %Y at %I:%M%p') }}
+                </cite></footer>
+            </blockquote>
+            <a href="{{ url_for('phonebook_detail', phonebook_id=phonebook.id) }}" class="btn btn-success">More Info</a>
+            
+        </div>
+    </div>   
+{% endfor %}
+
+{% endblock content %}

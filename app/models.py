@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref
 from app import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -14,6 +15,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(256), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
+    phonebooks = db.relationship('Phonebook', backref='author', lazy=True)
 
     def __init__(self, username, email, password):
         self.username=username
@@ -44,11 +46,14 @@ class Phonebook(db.Model):
     last_name =  db.Column(db.String(150))
     phone_number = db.Column(db.String(150))
     address = db.Column(db.String(300))
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    def __init__(self, first_name, last_name, phone_number, address):
+    def __init__(self, first_name, last_name, phone_number, address, user_id):
         self.first_name = first_name
         self.last_name = last_name
         self.phone_number = phone_number
         self.address = address
+        self.user_id = user_id
 
         

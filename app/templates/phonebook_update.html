@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Update {{ phonebook.first_name }} {{ phonebook.last_name }}</h1>
+<div class="container">
+    <form action="" autocomplete="off" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ form.first_name.label }}
+                {{ form.first_name(class='form-control', value=phonebook.first_name) }}
+            </fieldset>
+            <br>
+            <fieldset>
+                {{ form.last_name.label }}
+                {{ form.last_name(class='form-control', value=phonebook.last_name) }}
+            </fieldset>
+            <fieldset>
+                {{ form.phone_number.label }}
+                {{ form.phone_number(class='form-control', value=phonebook.phone_number) }}
+            </fieldset>
+            <fieldset>
+                {{ form.address.label }}
+                {{ form.address(class='form-control', value=phonebook.address) }}
+            </fieldset>
+        </div>
+        <br>
+        {{ form.submit_number(class='btn btn-success', value='Save') }}
+    </form>
+</div>
+
+{% endblock content %}  

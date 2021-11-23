@@ -14,7 +14,7 @@
             <a class="nav-link" href="/phonebook">Phonebook</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register_phone_number">Create Phonebook</a>
+            <a class="nav-link" href="/create-phonebook">Create Phonebook</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/createpost">Create Post</a>
@@ -35,6 +35,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ url_for('my_account') }}">My Account</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('my_phonebooks') }}">My Phonebooks</a></li>
               <li><a class="dropdown-item" href="{{ url_for('my_posts') }}">My Posts</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
